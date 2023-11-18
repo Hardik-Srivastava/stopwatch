@@ -18,7 +18,7 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 17, 30, 104),
+        backgroundColor: Color.fromARGB(255, 10, 22, 89),
           title: const Text('Mindful Meal Timer'),
           leading: IconButton(
               onPressed: () {
@@ -32,7 +32,7 @@ class HomeView extends GetView<HomeController> {
 
         ),
         
-      backgroundColor: const Color.fromARGB(255, 17, 30, 104),
+     backgroundColor: Color.fromARGB(255, 10, 22, 89),
       body: Center(
           child: CircularCountdownTimer(
             duration: 5, // Duration of the countdown in minutes
