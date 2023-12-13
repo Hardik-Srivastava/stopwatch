@@ -19,7 +19,7 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 10, 22, 89),
-          title: const Text('Mindful Meal Timer'),
+          title: const Text('Mindful Meal Timer',style: TextStyle(color: Colors.white),),
           leading: IconButton(
               onPressed: () {
 
@@ -63,7 +63,7 @@ class CountdownPainter extends CustomPainter {
 
     // Draw clock needles
     Paint needlePaint = Paint()
-      ..color = Colors.black
+      ..color = Colors.grey.shade800
       ..strokeWidth = 2;
 
     for (int i = 0; i < 60; i++) {
@@ -72,12 +72,14 @@ class CountdownPainter extends CustomPainter {
       double startY = radius + (radius - 100) * sin(angle);
       double endX = radius + (radius-80) * cos(angle);
       double endY = radius + (radius-80) * sin(angle);
+      double endX2 = radius + (radius-90) * cos(angle);
+      double endY2 = radius + (radius-90) * sin(angle);
 
       if (i % 5 == 0) {
         
         canvas.drawLine(Offset(startX, startY), Offset(endX, endY), needlePaint);
       } else {
-        
+        canvas.drawLine(Offset(startX, startY), Offset(endX2, endY2), needlePaint);
         canvas.drawCircle(Offset(startX, startY), 2, needlePaint);
       }
     }
@@ -243,11 +245,11 @@ class _CustomPageState extends State<CustomPage> {
                           height: MediaQuery.of(context).size.height / 2,
                           ringColor: Colors.grey,
                           ringGradient: null,
-                          fillColor: Colors.blueAccent,
+                          fillColor: Colors.redAccent,
                           fillGradient: null,
                           backgroundColor: Colors.white,
                           strokeWidth: 20.0,
-                          strokeCap: StrokeCap.round,
+                          strokeCap: StrokeCap.butt,
                           textStyle: const TextStyle(
                               fontSize: 33.0, color: Colors.black, fontWeight: FontWeight.bold),
                           isReverse: true,
@@ -347,7 +349,7 @@ class _CustomPageState extends State<CustomPage> {
             ),
         ),
                  
-                       Text('Sound ${(controller.isSoundOn)?'On':'Off'}:', style: TextStyle(color: Colors.white),),
+                       Text('Sound ${(controller.isSoundOn)?'On':'Off'}:', style: const TextStyle(color: Colors.white),),
                        
                     ],
                   ),
